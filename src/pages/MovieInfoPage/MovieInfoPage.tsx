@@ -1,4 +1,4 @@
-import { Container } from "../../shared/components/SharedLayout/Container";
+import { Container } from "../../shared/components/Container";
 
 export const MovieInfoPage = () => {
   return (

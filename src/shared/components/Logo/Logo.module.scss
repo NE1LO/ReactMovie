@@ -1,0 +1,14 @@
+.logo {
+  font-size: 20px;
+  color: #fff;
+}
+@include media(tablet) {
+  .logo {
+    font-size: 26px;
+  }
+}
+@include media(desktop) {
+  .logo {
+    font-size: 32px;
+  }
+}
