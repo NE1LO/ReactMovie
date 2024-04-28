@@ -1,0 +1,61 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+}
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.link {
+  color: $grey;
+  font-size: 14px;
+  transition: color $animation-duration $animation-time-function;
+  &:hover {
+    color: $white;
+  }
+}
+.linkActive {
+  color: $yellow;
+  position: relative;
+  &:hover {
+    color: $yellow;
+  }
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: $yellow;
+  }
+}
+.btn {
+  color: $grey;
+  transition: color $animation-duration $animation-time-function;
+  &:hover {
+    color: $white;
+  }
+}
+@include media(tablet) {
+  .nav {
+    gap: 30px;
+  }
+  .list {
+    gap: 16px;
+  }
+  .link,
+  .btn {
+    font-size: 22px;
+  }
+}
+@include media(desktop) {
+  .nav {
+    gap: 100px;
+  }
+  .list {
+    gap: 20px;
+  }
+}
