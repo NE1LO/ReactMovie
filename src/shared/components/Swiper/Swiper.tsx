@@ -50,15 +50,16 @@ const Swipers: React.FC<SwipersProps> = ({
       onAutoplayTimeLeft={onAutoplayTimeLeft}
       className="mySwiper"
     >
-      {slides.map((color, index) => (
-        <SwiperSlide key={index}>
-          <div
+      {slides.map((slide) => (
+        <SwiperSlide key={slide.id}>
+          <img
             style={{
-              backgroundColor: color,
               width: slideWidth,
               height: slideHeight,
             }}
-          ></div>
+            src={"https://image.tmdb.org/t/p/original" + slide.backdrop_path}
+            alt={slide.title}
+          />
         </SwiperSlide>
       ))}
       <div className={scss.autoplayProgress} slot="container-end">
