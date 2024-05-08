@@ -10,6 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import TrendMoviesSlice from "./Movies/trendMoviesSlice";
 import { favoritesTracksReducer } from "./favoriteSlice";
 
 const persistConfig = {
@@ -19,6 +20,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
+  movies: TrendMoviesSlice,
   favorite: favoritesTracksReducer,
 });
 
