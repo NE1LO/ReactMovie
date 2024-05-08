@@ -46,7 +46,7 @@ const Swipers: React.FC<SwipersProps> = ({
         clickable: true,
       }}
       navigation={false}
-      modules={[Autoplay, Pagination, Navigation]}
+      modules={[Autoplay, Navigation]}
       onAutoplayTimeLeft={onAutoplayTimeLeft}
       className="mySwiper"
     >
