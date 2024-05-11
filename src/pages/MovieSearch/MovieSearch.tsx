@@ -1,6 +1,6 @@
 import { Container } from "../../shared/components/Container";
 
-export const MovieInfoPage = () => {
+export const MovieSearch = () => {
   return (
     <main>
       {/* test section */}

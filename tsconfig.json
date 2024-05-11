@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "Footer", "src/pages/MovieInfoPage", "src/pages/HomePage"],
+  "include": ["src", "Footer", "src/pages/MovieSearch", "src/pages/HomePage"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
