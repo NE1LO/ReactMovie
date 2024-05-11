@@ -1,0 +1,48 @@
+.error {
+  background-image: url(./img/back.jpeg);
+  background-position: -400px -100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 1000px;
+  padding: 24px 0;
+  background-color: #01c77e;
+}
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btnHome {
+  font-size: 32px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+}
+.errorTitle {
+  font-size: 40px;
+  margin-top: 299px;
+  color: #bcb8b8;
+}
+@include media(desktop) {
+  .error {
+    background-position: center;
+    height: 100vh;
+  }
+  .errorContainer {
+    align-items: normal;
+  }
+  .btnHome {
+    text-align: left;
+  }
+  .errorTitle {
+    margin-top: 20%;
+    font-size: 64px;
+    text-align: center;
+    color: #fff;
+  }
+}
