@@ -1,29 +1,54 @@
 import { Container } from "../../shared/components/Container";
-import Swipers from "../../shared/components/Swiper/Swiper";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { selectTrendMovies } from "../../redux/Movies/selectors";
-import getTrendMovies from "../../redux/Movies/api/getTrendMovies";
+import { useEffect, useState } from "react";
+import PrimeSwiper from "../../shared/components/PrimeSwiper/PrimeSwiper";
+import Swipers from "../../shared/components/Swiper/Swipers";
+import getTrendMovies from "../../api/getTrendMovies";
+import getTopRated from "../../api/getTopRatedMovies";
 export const HomePage = () => {
-  const trendMovies = useSelector(selectTrendMovies);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getTrendMovies());
-  }, [dispatch]);
+  const [trendMovies, setTrendMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
 
-  console.log(trendMovies);
+  useEffect(() => {
+    const fetchTrendMovies = async () => {
+      try {
+        const response = await getTrendMovies();
+        setTrendMovies(response.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchTopRatedMovies = async () => {
+      try {
+        const response = await getTopRated();
+        setTopRatedMovies(response.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchTrendMovies();
+    fetchTopRatedMovies();
+  }, []);
 
   return (
     <main>
       <section>
         <Container>
-          <Swipers
+          <PrimeSwiper
             height={"100%"}
             width={"100%"}
             slideHeight={"600px"}
             slideWidth={"100%"}
-            slides={trendMovies.items}
+            movies={trendMovies}
           />
+          <Swipers movies={topRatedMovies} title="Top Rated" />
+          <Swipers movies={topRatedMovies} title="On trends NOW" />
+          <Swipers movies={topRatedMovies} title="Top Rated" />
+          <Swipers movies={topRatedMovies} title="On trends NOW" />
+          <Swipers movies={topRatedMovies} title="Top Rated" />
+          <Swipers movies={topRatedMovies} title="On trends NOW" />
         </Container>
       </section>
     </main>
