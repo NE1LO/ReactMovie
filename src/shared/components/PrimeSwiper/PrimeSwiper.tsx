@@ -1,30 +1,32 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import scss from "./Swiper.module.scss";
+import scss from "./PrimeSwiper.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 interface Slide {
-  color: string;
+  id: number;
+  title: string;
+  backdrop_path: string;
 }
 
-interface SwiperProps {
+interface PrimeSwiperProps {
   height: string;
   width: string;
   slideWidth: string;
   slideHeight: string;
-  slides: Slide[];
+  movies: Slide[];
 }
 
-const Swipers: React.FC<SwipersProps> = ({
+const PrimeSwiper: React.FC<PrimeSwiperProps> = ({
   height,
   width,
   slideWidth,
   slideHeight,
-  slides,
+  movies,
 }) => {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
@@ -50,15 +52,15 @@ const Swipers: React.FC<SwipersProps> = ({
       onAutoplayTimeLeft={onAutoplayTimeLeft}
       className="mySwiper"
     >
-      {slides.map((slide) => (
-        <SwiperSlide key={slide.id}>
+      {movies.map((movie) => (
+        <SwiperSlide key={movie.id}>
           <img
             style={{
               width: slideWidth,
               height: slideHeight,
             }}
-            src={"https://image.tmdb.org/t/p/original" + slide.backdrop_path}
-            alt={slide.title}
+            src={"https://image.tmdb.org/t/p/original" + movie.backdrop_path}
+            alt={movie.title}
           />
         </SwiperSlide>
       ))}
@@ -72,4 +74,4 @@ const Swipers: React.FC<SwipersProps> = ({
   );
 };
 
-export default Swipers;
+export default PrimeSwiper;

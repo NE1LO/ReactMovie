@@ -1,5 +1,4 @@
 import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const apiInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
@@ -9,14 +8,14 @@ const apiInstance = axios.create({
   },
 });
 
-const getTrendMovies = createAsyncThunk("movies/trend", async (_, thunkAPI) => {
+const getTrendMovies = async () => {
   try {
-    const response = await apiInstance.get("trending/movie/day?page=1");
-    console.log(response.data.results);
-    return response.data.results;
+    const response = await apiInstance.get("trending/movie/day");
+    return response.data;
   } catch (error) {
-    return thunkAPI.rejectWithValue("error");
+    console.log(error);
+    return null;
   }
-});
+};
 
 export default getTrendMovies;
