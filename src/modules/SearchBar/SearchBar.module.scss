@@ -1,0 +1,42 @@
+.section {
+  padding: 24px 0;
+}
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.form {
+  position: relative;
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input {
+  height: 35px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-left: 15px;
+  padding-right: 45px;
+  font-size: 20px;
+}
+.btn {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+}
+.icon {
+  color: #8b8b8b;
+  font-size: 22px;
+  position: absolute;
+  top: 6px;
+  right: 16px;
+}

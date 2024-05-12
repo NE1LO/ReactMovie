@@ -1,0 +1,26 @@
+.mySelect {
+  width: 320px;
+  min-height: 35px;
+  background-color: #fff;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.text {
+  color: #757575;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  margin-top: 4px;
+  align-items: center;
+  justify-content: start;
+  padding-left: 15px;
+}
+.optionWrapper {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.option {
+  color: #757575;
+}

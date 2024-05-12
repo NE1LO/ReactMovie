@@ -1,33 +1,35 @@
 .header {
-  height: 40px;
+  height: 60px;
   width: 100%;
   border-bottom: 1px solid #fff;
 }
-.container {
+.mycontainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 40px;
 }
 .userIcon {
-  font-size: 24px;
+  font-size: 32px;
+  margin-top: 15px;
 }
 @include media(tablet) {
   .header {
     height: 60px;
   }
-  .container {
+  .mycontainer {
     height: 60px;
   }
   .userIcon {
     font-size: 32px;
+    margin: 0;
   }
 }
 @include media(desktop) {
   .header {
     height: 100px;
   }
-  .container {
+  .mycontainer {
     height: 100px;
   }
   .userIcon {
