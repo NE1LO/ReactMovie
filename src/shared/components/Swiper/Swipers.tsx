@@ -1,6 +1,5 @@
-import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import scss from "./Swipers.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -9,7 +8,7 @@ import "swiper/css/scrollbar";
 
 interface SwipersProps {
   title: string;
-  movies: movies[];
+  movies: [];
 }
 
 const Swipers: React.FC<SwipersProps> = ({ movies, title }) => {

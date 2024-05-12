@@ -37,8 +37,8 @@ const PrimeSwiper: React.FC<PrimeSwiperProps> = ({
 
   return (
     <Swiper
-      style={{ width: width, height: height }}
-      spaceBetween={30}
+      style={{ width: width, height: height, marginBottom: "60px" }}
+      spaceBetween={10}
       centeredSlides={true}
       autoplay={{
         delay: 2500,
@@ -54,14 +54,16 @@ const PrimeSwiper: React.FC<PrimeSwiperProps> = ({
     >
       {movies.map((movie) => (
         <SwiperSlide key={movie.id}>
-          <img
-            style={{
-              width: slideWidth,
-              height: slideHeight,
-            }}
-            src={"https://image.tmdb.org/t/p/original" + movie.backdrop_path}
-            alt={movie.title}
-          />
+          <a href="#">
+            <img
+              style={{
+                width: slideWidth,
+                height: slideHeight,
+              }}
+              src={"https://image.tmdb.org/t/p/original" + movie.backdrop_path}
+              alt={movie.title}
+            />
+          </a>
         </SwiperSlide>
       ))}
       <div className={scss.autoplayProgress} slot="container-end">
