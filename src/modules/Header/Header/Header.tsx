@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <header className={s.header}>
       <Container>
-        <div className={s.container}>
+        <div className={s.mycontainer}>
           <HeaderNav />
           <FaUserCircle className={s.userIcon} color="#fff" />
         </div>
