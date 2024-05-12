@@ -40,3 +40,40 @@
   top: 6px;
   right: 16px;
 }
+.list {
+  display: none;
+}
+@include media(tablet) {
+  .container {
+    flex-direction: row;
+    gap: 40px;
+  }
+  .input {
+    border-top-right-radius: 0px;
+  }
+}
+@include media(desktop) {
+  .container {
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+  .form {
+    width: 40%;
+  }
+  .input {
+    border-radius: 15px;
+    padding-left: 40px;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+  }
+  .item {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-style: oblique;
+  }
+}

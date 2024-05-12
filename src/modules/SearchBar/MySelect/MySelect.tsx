@@ -1,26 +1,30 @@
 import { useState } from "react";
 import s from "./MySelect.module.scss";
+import clsx from "clsx";
 type Props = {
-  list: [string];
+  list: string[];
+  query: string;
+  setQuery: (i: string) => void;
 };
-export const MySelect = ({ list }: Props) => {
-  const { isOpen, setOpen } = useState(false);
+export const MySelect = ({ list, query, setQuery }: Props) => {
+  const [isOpen, setOpen] = useState(false);
   return (
-    <div className={s.mySelect} onClick={() => setOpen(!isOpen)}>
-      <p className={s.text}>{"Choce categorie"}</p>
-      {isOpen && (
-        <div className={s.optionWrapper}>
-          {/* {list.map((i, index) => (
-          <p className={s.select} key={index}>
-            {i}
-          </p>
-        ))} */}
-          <p className={s.option}>Fantastic</p>
-          <p className={s.option}>Popular</p>
-          <p className={s.option}>Fantasy</p>
-          <p className={s.option}>Western</p>
-        </div>
-      )}
+    <div className={s.container}>
+      <div
+        className={clsx(s.mySelect, isOpen && s.active)}
+        onClick={() => setOpen(!isOpen)}
+      >
+        <p className={s.text}>{query || "Choce categorie"}</p>
+        {isOpen && (
+          <div className={s.optionWrapper}>
+            {list.map((i, index) => (
+              <p className={s.option} key={index} onClick={() => setQuery(i)}>
+                {i}
+              </p>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
