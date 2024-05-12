@@ -8,15 +8,13 @@ const apiInstance = axios.create({
   },
 });
 
-const getTopRated = async () => {
+const getUpcomingMovies = async () => {
   try {
-    const response = await apiInstance.get("movie/top_rated?");
-    console.log(response);
+    const response = await apiInstance.get("movie/upcoming");
     return response.data;
   } catch (error) {
-    console.log(error);
-    return null;
+    console.error(error);
   }
 };
 
-export default getTopRated;
+export default getUpcomingMovies;

@@ -8,9 +8,9 @@ const apiInstance = axios.create({
   },
 });
 
-const getTopRated = async () => {
+const getTrendTv = async () => {
   try {
-    const response = await apiInstance.get("movie/top_rated?");
+    const response = await apiInstance.get("trending/tv/day");
     console.log(response);
     return response.data;
   } catch (error) {
@@ -19,4 +19,4 @@ const getTopRated = async () => {
   }
 };
 
-export default getTopRated;
+export default getTrendTv;
