@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import scss from "./Swipers.module.scss";
@@ -12,6 +13,7 @@ interface SwipersProps {
 }
 
 const Swipers: React.FC<SwipersProps> = ({ movies, title }) => {
+  const [delay, setDelay] = useState(1500);
   return (
     <>
       <h2 className={scss.title}>{title}</h2>
@@ -22,7 +24,7 @@ const Swipers: React.FC<SwipersProps> = ({ movies, title }) => {
         slidesPerView={5}
         grabCursor={true}
         autoplay={{
-          delay: 1000,
+          delay: delay,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -35,6 +37,8 @@ const Swipers: React.FC<SwipersProps> = ({ movies, title }) => {
         {movies.map((movie) => (
           <SwiperSlide key={movie.id}>
             <img
+              onMouseEnter={() => setDelay(5000)}
+              onMouseLeave={() => setDelay(1500)}
               style={{
                 margin: "10px 0",
                 borderRadius: "2px",
