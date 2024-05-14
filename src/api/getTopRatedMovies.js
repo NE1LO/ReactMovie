@@ -10,7 +10,7 @@ const apiInstance = axios.create({
 
 const getTopRated = async () => {
   try {
-    const response = await apiInstance.get("movie/top_rated?");
+    const response = await apiInstance.get(`movie/top_rated`);
     console.log(response);
     return response.data;
   } catch (error) {
