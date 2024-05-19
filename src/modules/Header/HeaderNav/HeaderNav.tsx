@@ -5,7 +5,11 @@ import { FaSearch } from "react-icons/fa";
 import { IoIosHome } from "react-icons/io";
 import s from "./HeaderNav.module.scss";
 import clsx from "clsx";
-export const HeaderNav = () => {
+
+type Props = {
+  openWeelModal: () => void;
+};
+export const HeaderNav = ({ openWeelModal }: Props) => {
   const dinamicStyle = ({ isActive }: { isActive: boolean }) =>
     clsx(s.link, isActive && s.linkActive);
   return (
@@ -23,7 +27,9 @@ export const HeaderNav = () => {
           </NavLink>
         </li>
         <li>
-          <button className={s.btn}>Wheel of fortune</button>
+          <button className={s.btn} onClick={openWeelModal}>
+            Wheel of fortune
+          </button>
         </li>
       </ul>
       <ul className={s.mobailList}>
@@ -38,7 +44,7 @@ export const HeaderNav = () => {
           </NavLink>
         </li>
         <li>
-          <button className={s.btn}>
+          <button className={s.btn} onClick={openWeelModal}>
             <GiPerspectiveDiceSixFacesRandom />
           </button>
         </li>
