@@ -1,0 +1,87 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+.modal {
+  position: relative;
+  height: 350px;
+  width: 300px;
+}
+.imgBig,
+.imgSmall {
+  height: 330px;
+  width: 300px;
+}
+.imgContainer {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.imgSmallContainer {
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 165px;
+  width: 165px;
+  border-radius: 50%;
+  top: 65px;
+  left: 67px;
+  transition: transform 7000ms;
+}
+.active {
+  transform: rotate(1440deg);
+}
+.imgSmall {
+  position: absolute;
+  top: -64px;
+}
+.btn {
+  height: 40px;
+  background-color: #000;
+  width: 100%;
+  border: 1px solid #000;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-size: 20px;
+}
+@include media(desktop) {
+  .modal {
+    height: 450px;
+    width: 420px;
+  }
+  .imgContainer {
+    width: 420px;
+    height: 420px;
+  }
+  .imgBig {
+    width: 420px;
+    height: 460px;
+  }
+  .imgSmall {
+    width: 420px;
+    height: 460px;
+    top: -90px;
+    left: -100px;
+  }
+  .imgSmallContainer {
+    width: 225px;
+    height: 225px;
+    top: 92px;
+    left: 99px;
+  }
+}
