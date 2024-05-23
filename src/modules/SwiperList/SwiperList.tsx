@@ -10,6 +10,7 @@ import getUpcomingMovies from "../../api/getUpcomingMovies";
 const SwiperList = () => {
   const [trendMovies, setTrendMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [topRatedMoviesTwo, setTopRatedMoviesTwo] = useState([]);
   const [ratedTv, setRatedTv] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
 
@@ -25,8 +26,16 @@ const SwiperList = () => {
 
     const fetchTopRatedMovies = async () => {
       try {
-        const response = await getTopRated();
+        const response = await getTopRated(1);
         setTopRatedMovies(response.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    const fetchTopRatedMoviesTwo = async () => {
+      try {
+        const response = await getTopRated(2);
+        setTopRatedMoviesTwo(response.results);
       } catch (error) {
         console.log(error);
       }
@@ -52,6 +61,7 @@ const SwiperList = () => {
     fetchUpcomingMovies();
     fetchTrendTv();
     fetchTrendMovies();
+    fetchTopRatedMoviesTwo();
     fetchTopRatedMovies();
   }, []);
   return (
@@ -65,6 +75,7 @@ const SwiperList = () => {
       />
       <Swipers movies={upcomingMovies} title="Upcoming Movies" />
       <Swipers movies={topRatedMovies} title="Top Rated" />
+      <Swipers movies={topRatedMoviesTwo} title="" />
       <Swipers movies={ratedTv} title="Rated TV" />
     </div>
   );
