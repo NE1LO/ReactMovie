@@ -3,33 +3,37 @@ import { FaSearch } from "react-icons/fa";
 import s from "./SearchBar.module.scss";
 import { MySelect } from "./MySelect/MySelect";
 import { useState } from "react";
-const list = [
-  "commedy",
-  "western",
-  "popular",
-  "commedy",
-  "western",
-  "popular",
-  "commedy",
-  "western",
-  "popular",
-];
-export const SearchBar = () => {
-  const [query, setQuery] = useState("");
+const list = ["commedy", "western", "popular"];
+
+type Props = {
+  setQuery: (query: string) => void;
+};
+
+export const SearchBar = ({ setQuery }: Props) => {
+  const [select, setSelect] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setQuery(e.target.query.value);
+  };
   return (
     <section className={s.section}>
       <Container>
         <div className={s.container}>
-          <form className={s.form}>
-            <input className={s.input} type="text" placeholder="Search" />
+          <form className={s.form} onSubmit={handleSubmit}>
+            <input
+              className={s.input}
+              type="text"
+              name="query"
+              placeholder="Search"
+            />
             <button className={s.btn}>
               <FaSearch className={s.icon} />
             </button>
           </form>
           <MySelect
             list={list}
-            query={query}
-            setQuery={(value) => setQuery(value)}
+            query={select}
+            setQuery={(value) => setSelect(value)}
           />
           <ul className={s.list}>
             {list.map((i, index) => (
